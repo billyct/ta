@@ -1,0 +1,93 @@
+<div class="page">
+<div class="nav-bar">
+    <div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="/"><span class="element brand">
+            <img class="place-left" src="{{base_url}}/images/logo32.png" style="height: 20px"/>
+            ta <small>测试0.1</small>
+        </span></a>
+
+        <div class="divider"></div>
+
+        <ul class="menu">
+            <li><a href="/">首页</a></li>
+            <li>
+                <a href="{{base_url}}/timeline">游吟</a>
+            </li>
+            <li><a href="{{base_url}}/cny15">￥15</a></li>
+            {% if current_user %}
+
+            <li class="place-right" data-role="dropdown">
+                <a href="javascript:void(0);" title="设置"><i class="icon-cog"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{base_url}}/accounts" target="_blank">我的账号</a></li>
+                    <li><a id="end-auth" href="{{base_url}}/signout">退出</a></li>
+                </ul>
+            </li>
+            <li class="place-right"><a href="{{base_url}}/message" title="私信">私信</a></li>
+            <li class="place-right"><a href="javascript:void(0);" id="link-quick-publish" title="快速发布"><i class="icon-comments"></i></a></li>
+            <li class="place-right" data-role="dropdown">
+                <a href="javascript:void(0);" title="{{ current_user.username }}"><i class="icon-reddit"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{{base_url}}/profile">主页</a></li>
+                    <li><a href="{{base_url}}/collection">收藏</a></li>
+                </ul>
+            </li>
+            {% else %}
+            <li class="place-right"><a href="{{url}}" id="auth" >注册</a></li>
+            <li class="place-right"><a href="{{url}}" id="auth" >登录</a></li>
+
+            {% endif %}
+        </ul>
+
+    </div>
+</div>
+</div>
+
+<div class="quick-form" id="quick-form" style="display:none">
+    <form id="form-quick" action="" method="post">
+        <div class="input-control textarea">
+            <textarea id="textarea-content" class="textarea-quick" placeholder="时间，地点，人物，事情" title="内容"></textarea>
+        </div>
+        <div class="input-control text datepicker" data-role="datepicker">
+            <input type="text" id="input-deadline" placeholder="截止日期" title="截止日期"/>
+            <button id="btn-date" class="btn-date"></button>
+        </div>
+        <div class="input-control">
+            <div class="toolbar">
+                <button id="btn-timeline-picture" class="bg-color-green" title="图片"> <i class="icon-pictures"></i></button>
+                <input name="publish" class="place-right bg-color-greenDark" id="btn-publish" type="submit" value="游吟" disabled="disabled"/>
+            </div>
+            
+        </div>
+
+    </form>
+
+    <div id="image-timeline-uploader" style="display:none">
+        <div id="image-timeline-fineuploader"></div>
+        <div id="image-timeline-uploaded-thumbs">
+            <div class="grid">
+                <div class="row">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+<input type="hidden" id="access_token" value="{{access_token}}" />
+
+
+<script id="image-uploader-template" type="text/template">
+
+<div class="span1">
+    <img class="image-uploaded-thumb" image-id="<%= image.id %>" src="<%= image.path %>" alt="name"/>
+    <div class="toolbar">
+        <button id="btn-image-delete" image-id="<%= image.id %>">
+            <i class="icon-cancel-2"></i>
+        </button>
+    </div>
+</div>
+
+</script>

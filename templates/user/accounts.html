@@ -1,0 +1,51 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>{{current_user.username}}的账号<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+    <div class="page-region">
+        <div class="page-region-content">
+        	 <div class="page-control" data-role="page-control">
+		        <!-- Responsive controls -->
+		        <span class="menu-pull"></span> 
+		        <div class="menu-pull-bar"></div>
+		        <!-- Tabs -->
+		        <ul>
+		            <li class="active"><a href="#base-setting">基本设置</a></li>
+		        </ul>
+		        <!-- Tabs content -->
+		        <div class="frames">
+		            <div class="frame active" id="base-setting">
+		            	<p>
+			            	<label for="username">名号:</label>
+			            	<input type="text" name="username" id="username" value="{{current_user.username}}" disabled/>
+		            	</p>
+
+		            	<p>
+		            		<label for="avatar">头像:</label>
+		            		<img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+		            		<a href="{{base_url}}/account/avatarchange">更改</a>
+		            	</p>
+
+		            	<p>
+			            	<label for="email">登录邮箱:</label>
+			            	<span class="label">{{current_user.email}}</span>
+			            	<a href="{{base_url}}/account/emailchange">更改</a>
+			            </p>
+
+			            <p>
+			            	<label for="password">密码:</label>
+			            	<a href="{{base_url}}/account/passwordchange">更改</a>
+			            </p>
+
+		            </div>
+		        </div>
+		    </div>
+        </div>
+    </div>
+</div>
+{{ include('layout/footer.html', sandboxed = true) }}

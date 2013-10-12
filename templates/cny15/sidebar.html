@@ -1,0 +1,23 @@
+ <div class="page-sidebar">
+    <ul>
+        
+    	<li><a href="{{base_url}}/cny15"><i class="icon-home"></i>首页</a></li>
+        {% if current_user %}
+        <li class="sticker sticker-color-green">
+        	<a href="javascript:void(0);"><i class="icon-user-3"></i>我是卖家</a>
+        	<ul class="sub-menu light open">
+                <li><a href="{{base_url}}/cny15/manage/new">发布￥15</a></li>
+        		<li><a href="{{base_url}}/cny15/manage">我的￥15</a></li>
+        		<li><a href="{{base_url}}/cny15/manage/my_sell_order">订单管理</a></li>
+        		<li><a href="{{base_url}}/cny15/manage/income">收入管理</a></li>
+        	</ul>
+        </li>
+        <li class="sticker sticker-color-yellow">
+        	<a href=""><i class="icon-cart"></i>我是买家</a>
+            <ul class="sub-menu light">
+                <li><a href="{{base_url}}/cny15/manage/my_buy_order">我的订单</a></li>
+            </ul>
+        </li>
+        {% endif %}
+    </ul>
+</div>

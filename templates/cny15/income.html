@@ -1,0 +1,60 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>￥ 15<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div class="my-orders span8">
+                        <div class="span8">
+                        	<table>
+                        		<thead>
+                        			<tr>
+                        				<th>订单号</th>
+                        				<th>商品</th>
+                        				<th>数量</th>
+                        				<th>总金额</th>
+                        			</tr>
+                        		</thead>
+                        		<tbody>
+	                        		{% for order in orders%}
+	                        		<tr>
+	                        			<td>{{order.id}}</td>
+	                        			<td>
+	                        				<h4><span class="label">￥{{order.gig.price}}</span>我将{{order.gig.title}}</h4>
+	                        				<!-- <span class="label info">附加服务:</span>
+	                        				<div class="extras padding10">
+		                        				{% for extra in order.extras %}
+		                        				<p><span class="label">￥{{extra.price}}</span>{{extra.title}}</p>
+		                        				{% endfor %}
+		                        			</div> -->
+	                        			</td>
+	                        			<td>{{order.sum}}</td>
+	                        			<td>￥{{order.total}}</td>
+	                        		</tr>
+	                        		{% endfor %}
+                        		</tbody>
+                        	</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</div>
+
+
+{{ include('layout/footer.html', sandboxed = true) }}

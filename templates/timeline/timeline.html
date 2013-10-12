@@ -1,0 +1,156 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>游吟<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+
+                    <div class="span2">
+                        <div class="user-intro">
+                            <img class="avatar" src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+                            <h2>{{timeline.user.username}}</h2>
+                        </div>
+                    </div>
+                    <div class="span8">
+                        <div class="timeline-single">
+
+                            <p class="content"><i class="icon-comments-3"></i>{{timeline.content}}</p>
+
+                            {% for image in timeline.images %}
+                            <div class="tile image">
+                                <div class="tile-content">
+                                    <img src="{{ image.path_thumb }}" />
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="clearfix"></div>
+
+                            <p class="create_at">发布时间: {{timeline.create_at_nice}}</p>
+                            <p class="deadline"><i class="icon-clock"></i>{{timeline.deadline_nice}}</p>
+                        </div>
+                        <a id="favorite" data="{{timeline.favorited?'undo':'do'}}" timeline-id="{{timeline.id}}" class="bg-color-blueLight button">
+                            收藏
+                            <i id="icon-i" class="{{timeline.favorited?'icon-heart':'icon-heart-2'}}" title="收藏"></i>
+                            {% if timeline.favorited_count > 0 %}
+                            <span class="badge">{{timeline.favorited_count}}</span>
+                            {% endif %}
+                        </a>
+                        <a id="join" data="{{timeline.joined?'undo':'do'}}" timeline-id="{{timeline.id}}" class="bg-color-blueLight button">
+                            报名参加
+                            <i id="icon-i" class="{{ timeline.joined?'icon-bookmark':'icon-bookmark-2'}}" ></i>
+                            {% if timeline.joined_count > 0 %}
+                            <span class="badge">{{timeline.joined_count}}</span>
+                            {% endif %}
+                        </a>
+                        <hr />
+                    </div>
+
+                    <div class="span8 offset2">
+
+                        <div class="comment-form">
+
+                            <div class="span1">
+                                <img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+                            </div>
+                            <div class="span7">
+                                <from id="form-comment" class="form-comment">
+                                    <div class="input-control textarea">
+                                        <textarea id="textarea-content" class="textarea" placeholder="内容" title="内容"></textarea>
+                                    </div>
+         
+                                    <div class="input-control">
+                                        <div class="toolbar">
+                                            <input name="leavemsg" timeline-id="{{timeline.id}}" class="bg-color-greenDark" id="btn-leavemsg" type="submit" value="留言"/>
+                                            <button id="btn-comment-picture" class="bg-color-green" title="图片">
+                                                <i class="icon-pictures"></i>
+                                            </button>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div id="image-comment-uploader" style="display:none;">
+                                        <div id="image-comment-fineuploader"></div>
+                                        <div id="image-comment-uploaded-thumbs">
+                                            <div class="grid">
+                                                <div class="row">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </from>
+                            </div>
+                            
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <ul id="comment-list" class="comment-list unstyled">
+                            {% for comment in comments%}
+                            <li class="comment">
+                                <div class="avatar">
+                                    <img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+                                </div>
+                                <div class="detail">
+                                    <p>
+                                        <span class="username">{{comment.user.username}}:</span>
+                                    </p>
+                                    <p class="content">
+                                        {{comment.content}}
+                                    </p>
+                                    {% if comment.image %}
+                                    <div class="tile image">
+                                        <div class="tile-content">
+                                            <img src="{{ comment.image.path_thumb }}" />
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="clearfix"></div>
+                                    <p class="create_at">{{comment.create_at_nice}}</p>
+                                    <hr />
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        
+
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="comment-template" type="text/template">
+<li class="comment">
+    <div class="avatar">
+        <img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+    </div>
+    <div class="detail">
+        <p>
+            <span class="username"><%= user.username %>:</span>
+        </p>
+        <p class="content">
+            <%= content %>
+        </p>
+        <% if (image) { %>
+        <div class="tile image">
+            <div class="tile-content">
+                <img src="<%= image.path_thumb %>" />
+            </div>
+        </div>
+        <% } %>
+        <div class="clearfix"></div>
+        <p class="create_at"><%= create_at %></p>
+        <hr />
+    </div>
+</li>
+</script>
+{{ include('layout/footer.html', sandboxed = true) }}

@@ -1,0 +1,153 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>我的￥ 15<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <a href="{{base_url}}/cny15/manage/new" class="button">创建新的￥15</a>
+                    <div class="cny15s span8">
+                        {% for gig in gigs %}
+                        <div id="cny15-manage" class="cny15-manage span8">
+                            <div class="cny15-image span2">
+                                <div class="tile image">
+                                    <div class="tile-content">
+                                    {% if gig.images %}
+                                        <img src="{{ (gig.images|first).path_thumb }}" />
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cny15-detail span6">
+                                <p>
+                                    {% if gig.status == 0 %}
+                                    <span id="activate-status" class="label">已下架</span>
+                                    {% elseif gig.status == 1 %}
+                                    <span id="activate-status" class="label success">在售中</span>
+                                    {% endif %}
+                                </p>
+                                <p><h3>{{ gig.title }}</h3></p>
+                                <div class="span8">
+                                    <p class="toolbar span2">
+                                        <a href="{{base_url}}/cny15/manage/edit/{{gig.id}}" class="bg-color-blueLight">修改</a>
+                                        
+                                        {% if gig.status == 0 %}
+                                        <a id="activate" data="do" gig-id="{{gig.id}}" href="javascript:void(0);" class="bg-color-blueLight">上架</a>
+                                        {% elseif gig.status == 1 %}
+                                        <a id="activate" data="undo" gig-id="{{gig.id}}" href="javascript:void(0);" class="bg-color-blueLight">下架</a>
+                                        {% endif %} 
+
+                                        <a id="link-gig-delete" href="javascript:void(0);" gig-id="{{gig.id}}" class="bg-color-blueLight">删除</a>
+                                    </p>
+                                    <p class="span4 padding5">
+                                        <a id="add-extra" gig-id="{{gig.id}}" href="javascript:void(0);">添加额外服务</a>
+                                    </p>
+                                </div>
+
+                                <div class="span6 bg-color-blueLight">
+                                    <div class="span6">
+                                        <p class="span3 cny15-status">发布日期:{{gig.create_at_nice}}</p>
+                                        <p class="span3">
+                                            <span class="label">被{{gig.favorited_count}}人收藏</span><br />
+                                            <span class="label inverse">被{{gig.order_count}}人下订单</span>
+                                        </p>
+                                    </div>
+
+                                    {% if gig.extras %}
+                                    <div class="span6 padding10">
+                                        <p class="span1">
+                                            <span class="label info">附加服务:</span>
+                                        </p>
+                                        <ul id="extra-list" class="span4 listview extras">
+                                            {% for extra in gig.extras %}
+                                            <li>
+                                                <div class="badge">
+                                                    ￥{{extra.price}}
+                                                </div>
+                                                <div class="data">
+                                                    <h4>{{extra.title}}</h4>
+                                                    <p>
+                                                        <span class="label">
+                                                            {% if (extra.extra_time) %}
+                                                            额外时间:{{extra.extra_time}}天
+                                                            {% else %}
+                                                            不需要增加额外的时间
+                                                            {% endif %}
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    {% endif %}
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <hr />
+                        
+                        {% endfor %}
+
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script id="extra-form-template" type="text/template">
+
+<form>
+    <div class="input-control">
+        <textarea id="extra-title" placeholder="具体内容"></textarea>
+    </div>
+
+    <div class="input-control">
+        <input id="extra-price" type="text" placeholder="价格"/>
+    </div>
+
+    <div class="input-control">
+        <input id="extra-time" type="text" placeholder="额外时间" />
+    </div>
+</form>
+
+</script>
+
+<script id="extra-template" type="text/template">
+<li>
+    <div class="badge">
+        ￥<%= price %>
+    </div>
+    <div class="data">
+        <h4><%= title %></h4>
+        <p>
+            <span class="label">
+            <% if(extra_time) { %>
+            额外时间:<%= extra_time %>天
+            <% } else { %>
+            不需要增加额外的时间
+            <% } %>
+            </span>
+        </p>
+    </div>
+</li>
+</script>
+
+
+{{ include('layout/footer.html', sandboxed = true) }}

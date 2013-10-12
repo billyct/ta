@@ -1,0 +1,41 @@
+ERROR - 2013-04-10T00:41:06+08:00 - exception 'ErrorException' with message 'Undefined variable: user' in C:\xampp\htdocs\ta\public\index.php:146
+Stack trace:
+#0 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim::handleErrors(8, 'Undefined varia...', 'C:\xampp\htdocs...', 146, Array)
+#1 [internal function]: {closure}(Object(Slim\Route))
+#2 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(168): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#7 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#8 C:\xampp\htdocs\ta\public\index.php(193): Slim\Slim->run()
+#9 {main}
+ERROR - 2013-04-10T00:59:44+08:00 - exception 'Guzzle\Http\Exception\ServerErrorResponseException' with message 'Server error response
+[status code] 500
+[reason phrase] Internal Server Error
+[url] http://api.localhost/api/gig/show?gig_id=3&access_token=VnyM5KzpmVeSw7ncGfhpXW5NT77wv4ckjoRpt4Sl' in C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Exception\BadResponseException.php:46
+Stack trace:
+#0 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Request.php(185): Guzzle\Http\Exception\BadResponseException::factory(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Message\Response))
+#1 [internal function]: Guzzle\Http\Message\Request::onRequestError(Object(Guzzle\Common\Event))
+#2 C:\xampp\htdocs\ta\vendor\symfony\event-dispatcher\Symfony\Component\EventDispatcher\EventDispatcher.php(164): call_user_func(Array, Object(Guzzle\Common\Event))
+#3 C:\xampp\htdocs\ta\vendor\symfony\event-dispatcher\Symfony\Component\EventDispatcher\EventDispatcher.php(53): Symfony\Component\EventDispatcher\EventDispatcher->doDispatch(Array, 'request.error', Object(Guzzle\Common\Event))
+#4 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Request.php(762): Symfony\Component\EventDispatcher\EventDispatcher->dispatch('request.error', Object(Guzzle\Common\Event))
+#5 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Request.php(467): Guzzle\Http\Message\Request->processResponse(Array)
+#6 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Curl\CurlMulti.php(516): Guzzle\Http\Message\Request->setState('complete', Array)
+#7 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Curl\CurlMulti.php(446): Guzzle\Http\Curl\CurlMulti->processResponse(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Curl\CurlHandle), Array)
+#8 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Curl\CurlMulti.php(405): Guzzle\Http\Curl\CurlMulti->processMessages()
+#9 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Curl\CurlMulti.php(262): Guzzle\Http\Curl\CurlMulti->perform()
+#10 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Client.php(390): Guzzle\Http\Curl\CurlMulti->send()
+#11 C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Request.php(258): Guzzle\Http\Client->send(Object(Guzzle\Http\Message\Request))
+#12 C:\xampp\htdocs\ta\src\TA\OAuth.php(86): Guzzle\Http\Message\Request->send()
+#13 C:\xampp\htdocs\ta\src\TA\Client.php(72): TA\OAuth->get('http://api.loca...', Array)
+#14 C:\xampp\htdocs\ta\public\index.php(180): TA\Client->gig_show('3')
+#15 [internal function]: {closure}('3')
+#16 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#17 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#18 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#19 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#20 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#21 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#22 C:\xampp\htdocs\ta\public\index.php(193): Slim\Slim->run()
+#23 {main}

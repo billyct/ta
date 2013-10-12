@@ -1,0 +1,96 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>游吟<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+    {{ include('timeline/sidebar.html', sandboxed = true) }}
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div class="span6">
+                        <ul id="timeline-list" class="timeline-list unstyled">
+                            {% for timeline in timelines%}
+                                <li class="timeline">
+                                    <div class="avatar">
+                                        <img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+                                    </div>
+                                    <div class="detail">
+                                        <p>
+                                            <a href="{{base_url}}/profile/{{timeline.user.id}}"><span class="username">{{timeline.user.username}}:</span></a>
+                                        </p>
+
+                                        <p class="content">
+                                            <a href="{{base_url}}/timeline/{{timeline.id}}" target="_blank">
+                                                <i class="icon-left-quote"></i>
+                                                {{timeline.content}}
+                                                <i class="icon-right-quote"></i>
+                                            </a>                                    
+                                        </p>
+                                        {% for image in timeline.images %}
+                                        <div class="tile image">
+                                            <div class="tile-content">
+                                                <img src="{{ image.path_thumb }}" />
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        <div class="clearfix"></div>
+                                        
+                                        <p class="create_at" time="{{timeline.create_at}}">{{timeline.create_at_nice}}</p>
+                                        <p class="deadline" time="{{timeline.deadline}}"><i class="icon-clock" title="截止日期"></i>{{timeline.deadline_nice}}</p>
+                                        <p class="toolbar">
+                                            <a id="favorite" data="{{timeline.favorited?'undo':'do'}}" timeline-id="{{timeline.id}}" class="bg-color-blueLight">
+                                                <i id="icon-i" class="{{timeline.favorited?'icon-heart':'icon-heart-2'}}" title="收藏"></i>
+                                                <i id="word-i" style="display:none;">收藏</i>
+                                                {% if timeline.favorited_count > 0 %}
+                                                <span class="badge">{{timeline.favorited_count}}</span>
+                                                {% endif %}
+                                            </a>
+                                            
+                                            <a id="comments" timeline-id="{{timeline.id}}" href="{{base_url}}/timeline/{{timeline.id}}" target="_blank" class="bg-color-blueLight">
+                                                <i id="icon-i" class="icon-comments-5" title="评论"></i>
+                                                <i id="word-i" style="display:none;">评论</i>
+                                                {% if timeline.comments_count > 0 %}
+                                                <span class="badge">{{timeline.comments_count}}</span>
+                                                {% endif %}
+                                            </a>
+                                            <a id="join" data="{{timeline.joined?'undo':'do'}}" timeline-id="{{timeline.id}}" class="bg-color-blueLight">
+                                                <i id="icon-i" class="{{ timeline.joined?'icon-bookmark':'icon-bookmark-2'}}" ></i>
+                                                <i id="word-i" style="display:none;">参加</i>
+                                                {% if timeline.joined_count > 0 %}
+                                                <span class="badge">{{timeline.joined_count}}</span>
+                                                {% endif %}
+                                            </a>
+                                            
+                                        </p>
+                                        <hr />
+                                    </div>
+                                </li>
+                            {% endfor %}
+                            
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="bg-color-blueLight load-more">
+                            <center><a href="javascript:void(0);">加载更多</a></center>
+                        </div>
+                    </div>
+
+                    <div class="span3">
+                        <div class="notify">
+                            
+                            <h4>发现更多有趣的内容:</h4>
+                            <a href="/app/">移动应用</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ include('layout/footer.html', sandboxed = true) }}

@@ -1,0 +1,19 @@
+ERROR - 2013-04-06T04:53:29+08:00 - exception 'Twig_Error_Loader' with message 'Unable to find template "cny15.html" (looked into: ../templates).' in C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Loader\Filesystem.php:198
+Stack trace:
+#0 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(134): Twig_Loader_Filesystem->findTemplate('cny15.html')
+#1 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(266): Twig_Loader_Filesystem->getCacheKey('cny15.html')
+#2 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(313): Twig_Environment->getTemplateClass('cny15.html', NULL)
+#3 C:\xampp\htdocs\ta\vendor\slim\extras\Slim\Extras\Views\Twig.php(97): Twig_Environment->loadTemplate('cny15.html')
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\View.php(195): Slim\Extras\Views\Twig->render('cny15.html')
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\View.php(182): Slim\View->fetch('cny15.html')
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(672): Slim\View->display('cny15.html')
+#7 C:\xampp\htdocs\ta\public\index.php(121): Slim\Slim->render('cny15.html')
+#8 [internal function]: {closure}()
+#9 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#10 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#11 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#12 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#13 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#14 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#15 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim->run()
+#16 {main}

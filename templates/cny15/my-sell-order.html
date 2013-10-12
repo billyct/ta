@@ -1,0 +1,77 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>￥ 15<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div class="my-order span8">
+                        <div class="span8">
+                        	<table>
+                        		<tbody>
+                            		<tr>
+                                        <th>订单号:</th>
+                            			<td>{{order.id}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>服务:</th>
+                            			<td>
+                            				<h4><span class="label">￥{{order.gig.price}}</span>我将{{order.gig.title}}</h4>
+                            			
+                            			</td>
+                                    </tr>
+                                    {% if order.extras %}
+                                    <tr>
+                                        <th>额外服务:</th>
+                                        <td>
+                                            <div class="extras">
+                                                {% for extra in order.extras %}
+                                                <p><span class="label">￥{{extra.price}}</span>{{extra.title}}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <th>数量:</th>
+                            			<td>{{order.sum}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>总金额:</th>
+                            			<td>￥{{order.total}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>支付状态:</th>
+                            			<td><a href="">{{ (order.status == 0)?'<span class="label warning">未支付</span>':'<span class="label success">已支付</span>'}}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <td><a href="{{last_url}}" class="button bg-color-blueDark fg-color-white">确定返回</a></td>
+                                    </tr>
+
+                                </tbody>
+                        		
+                        	</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</div>
+
+
+{{ include('layout/footer.html', sandboxed = true) }}

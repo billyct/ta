@@ -1,0 +1,117 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>创建￥ 15<small></small></h1>
+            <a href="{{base_url}}/cny15/manage" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                	<div class="cny15-new span8">
+
+                		<form id="form-cny15" method="post" action="">
+	                		<div class="price span8">
+	                			<h2 class="span1 fg-color-greenDark">给我</h2>
+	                			<div class="input-control text span1">
+							        <input type="text" id="price" placeholder="￥15™"/>
+							    </div>
+							    <h2 class="span1 fg-color-greenDark">，</h2>
+							    
+	                		</div>
+	                		<div class="title span8">
+	                			<h2 class="span1 fg-color-greenDark">我将</h2>
+							    <div class="input-control text span4">
+							        <input type="text" id="title" placeholder="我将做什么"/>
+							        <button class="btn-clear"></button>
+							    </div>
+							    <h2 class="span1 fg-color-greenDark">！</h2>
+	                		</div>
+	                		<div class="description span8">
+	                			<h3 class="span1">描述</h3>
+	                			<div class="input-control textarea span5">
+							        <textarea id="description"></textarea>
+							    </div>
+							    <p class="span2 place-right">具体的描述你将做的事情</p>
+	                		</div>
+
+	                		<div class="instructions span8">
+	                			<h3 class="span1">说明</h3>
+	                			<div class="input-control textarea span5">
+							        <textarea id="instructions"></textarea>
+							    </div>
+	                			<p class="span2 place-right">如果你需要从买家那里获取文件或其他材料,请在这里添加,比如:"请给我您的公司名称"或"给我需要我来编辑你的照片",<span class="label">如果没有请留空</span></p>
+	                			
+	                		</div>
+
+	                		<div class="tags span8">
+	                			<h3 class="span1">标签</h3>
+	                			<div class="input-control textarea span4">
+							        <input type="text" id="tags" />
+							    </div>
+							    <p class="span2 place-right">关键字,比如"图片处理,视频教程"</p>
+	                		</div>
+
+	                		<div class="time_to_complete span8">
+	                			<h3 class="span1">时间</h3>
+	                			<div class="input-control textarea span2">
+							        <input type="text" id="time_to_complete" placeholder="完成时间,单位(天)"/>
+							    </div>
+							    <p class="span2 place-right">
+							    	用来完成的时间,单位(天),请考虑到你的空闲时间和其他事物,
+							    	如果你没有在这时间里完成，买家可以取消订单
+							    </p>
+
+	                		</div>
+
+	                		<div class="images span8">
+	                			<div id="image-cny15-uploader">
+		                			<h3 class="span1">图片</h3>
+		                			<div id="image-cny15-fineuploader" class="span4"></div>
+								    <p class="span2 place-right">宽600像素，高370像素，JPEG,PNG格式,最大5MB</p>
+								    <div class="clearfix"></div>
+							        <div id="image-cny15-uploaded-thumbs">
+							            <div class="grid">
+							                <div class="row">
+							                </div>
+							            </div>
+							        </div>
+							    </div>
+
+	                		</div>
+
+	                		<div class="shipping span8 bg-color-blueLight">
+	                			<label class="input-control checkbox">
+							        <input type="checkbox">
+							        <span class="helper">物流</span>
+							    </label>
+
+
+	                  		</div>
+
+	                  		<div class="buttons span8">
+		                  		<div class="input-control">
+		                  			 <button id="btn-save" class="bg-color-blueDark fg-color-white">
+								        保存
+								    </button>
+		                  			<a href="">取消</a>
+		                  		</div>
+		                  	</div>
+
+	                  	</form>
+
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{ include('layout/footer.html', sandboxed = true) }}

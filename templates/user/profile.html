@@ -1,0 +1,164 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>个人中心<small></small></h1>
+            <a href="{{last_url}}" class="back-button big page-back"></a>
+        </div>
+    </div>
+    <div class="page-region">
+        <div class="page-region-content">
+        	<div class="grid">
+                <div class="row">
+		        	<div class="profile span8">
+
+		        		<div class="profile-header">
+		        			<div class="span2 avatar">
+		        				<img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+		        			</div>
+		        			<div class="span5 descript">
+		        				<h2>{{user.username}}</h2>
+		        				<p><a href="{{base_url}}/profile/{{user.id}}">{{base_url}}/profile/{{user.id}}</a></p>
+		        			</div>
+		        		</div>
+
+		        		<div class="profile-content span10">
+				        	<div class="page-control" data-role="page-control">
+						        <!-- Responsive controls -->
+						        <span class="menu-pull"></span> 
+						        <div class="menu-pull-bar"></div>
+						        <!-- Tabs -->
+						        <ul>
+						            <li class="active"><a href="#page-timelines">游吟</a></li>
+						            <li><a href="#page-cny15s">￥15</a></li>
+						            <li><a href="#page-photos">相册</a></li>
+						        </ul>
+						        <!-- Tabs content -->
+						        <div class="frames">
+						            <div class="frame active" id="page-timelines">
+						            	<ul id="timeline-list" class="timeline-list unstyled">
+				                            {% for timeline in timelines%}
+				                                <li class="timeline">
+				                                    <div class="detail">
+
+				                                        <p class="content">
+				                                            <a href="{{base_url}}/timeline/{{timeline.id}}" target="_blank">
+				                                                <i class="icon-left-quote"></i>
+				                                                {{timeline.content}}
+				                                                <i class="icon-right-quote"></i>
+				                                            </a>                                    
+				                                        </p>
+				                                        {% for image in timeline.images %}
+				                                        <div class="tile image">
+				                                            <div class="tile-content">
+				                                                <img src="{{ image.path_thumb }}" />
+				                                            </div>
+				                                        </div>
+				                                        {% endfor %}
+				                                        <div class="clearfix"></div>
+				                                        
+				                                        <p class="create_at" time="{{timeline.create_at}}">{{timeline.create_at_nice}}</p>
+				                                        <p class="deadline" time="{{timeline.deadline}}"><i class="icon-clock" title="截止日期"></i>{{timeline.deadline_nice}}</p>
+				                                        <p class="toolbar">
+				                                        	{% if current_user.username != user.username %}
+				                                            <a id="favorite" data="{{timeline.favorited?'undo':'do'}}" timeline-id="{{timeline.id}}" class="bg-color-blueLight">
+				                                                <i id="icon-i" class="{{timeline.favorited?'icon-heart':'icon-heart-2'}}" title="收藏"></i>
+				                                                <i id="word-i" style="display:none;">收藏</i>
+				                                                {% if timeline.favorited_count > 0 %}
+				                                                <span class="badge">{{timeline.favorited_count}}</span>
+				                                                {% endif %}
+				                                            </a>
+				                                            {% endif %}
+				                                            <a id="comments" timeline-id="{{timeline.id}}" href="{{base_url}}/timeline/{{timeline.id}}" target="_blank" class="bg-color-blueLight">
+				                                                <i id="icon-i" class="icon-comments-5" title="评论"></i>
+				                                                <i id="word-i" style="display:none;">评论</i>
+				                                                {% if timeline.comments_count > 0 %}
+				                                                <span class="badge">{{timeline.comments_count}}</span>
+				                                                {% endif %}
+				                                            </a>
+				                                            {% if current_user.username != user.username %}
+				                                            <a id="join" data="{{timeline.joined?'undo':'do'}}" timeline-id="{{timeline.id}}" class="bg-color-blueLight">
+				                                                <i id="icon-i" class="{{ timeline.joined?'icon-bookmark':'icon-bookmark-2'}}" ></i>
+				                                                <i id="word-i" style="display:none;">参加</i>
+				                                                {% if timeline.joined_count > 0 %}
+				                                                <span class="badge">{{timeline.joined_count}}</span>
+				                                                {% endif %}
+				                                            </a>
+				                                            {% endif %}
+				                                        </p>
+				                                        <hr />
+				                                    </div>
+				                                </li>
+				                            {% endfor %}
+				                            
+				                        </ul>
+
+						            </div>
+						            <div class="frame" id="page-cny15s">
+						            	<div class="gigs span8">
+					                        {% for gig in gigs %}
+					                        <div class="gig span8">
+					                            {% if gig.images %}
+					                            <div class="gig-images span2">
+					                                <div class="tile image-slider" data-role="image-slider">
+					                                    {% for image in gig.images %}
+					                                    <div class="tile-content">
+					                                        <img src="{{ image.path_thumb }}"/>
+					                                    </div>
+					                                    {% endfor %}
+					                                </div>
+					                            </div>
+					                            {% endif %}
+
+
+
+					                            <div class="gig-detail span5">
+					                                <a class="title-description" href="{{base_url}}/cny15/{{gig.id}}">
+					                                    <p>
+					                                        <h3>给我￥{{gig.price}}，我将{{ gig.title }}！</h3>
+					                                    </p>
+					                                </a>
+					                                <p class="body-secondary-text">{{ gig.description }}</p>
+					                                <p class="toolbar">
+					                                	{% if current_user.username != user.username %}
+					                                    <a id="gig-favorite" data="{{gig.favorited?'undo':'do'}}" gig-id="{{gig.id}}" class="bg-color-blueLight">
+					                                        <i id="icon-i" class="{{gig.favorited?'icon-heart':'icon-heart-2'}}" title="收藏"></i>
+					                                        {% if gig.favorited_count > 0 %}
+					                                        <span class="badge">{{gig.favorited_count}}</span>
+					                                        {% endif %}
+					                                    </a>
+					                                    {% endif %}
+					                                    <a href="{{base_url}}/cny15/{{gig.id}}" class="button bg-color-greenLight fg-color-blueLight">订购</a>
+					                                </p>
+					                                <p>
+					                                    {% for tag in gig.tags %}
+					                                        <span class="label info">{{tag.name}}</span>
+					                                    {% endfor%}
+
+					                                </p>
+
+					                            </div>
+					                            
+					                        </div>
+					                        <hr />
+					                        {% endfor %}
+					                    </div>
+						            </div>
+						            <div class="frame" id="page-photos">
+						            	<div class="image-collection p4x3">
+						            		{% for image in images%}
+									        <div><img src="{{image.path_thumb}}"/></div>
+									        {% endfor %}
+									    </div>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+				    </div>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+{{ include('layout/footer.html', sandboxed = true) }}

@@ -1,0 +1,103 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>私信<small>与{{user.username}}的对话</small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div id="messages-single" class="messages-single span8">
+                        <div class="message-box span8">
+                            <div id="message-input-area">
+                                <div id="textbox" contenteditable="true"></div>
+                                <div id="close"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="message-text-area" style="color:#999">发私信</div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div style="display:none" to-user="{{user.id}}" id="btn-send-message" class="btn-send" >发送</div>
+
+                        <hr />
+                        <div class="message-list span8">
+                            <ul id="message-list" class="replies span8">
+                                {% for message in messages %}
+                                {% if current_user.id == message.user.id %}
+
+                                <li class="bg-color-orange place-right span4">
+                                    <b class="sticker sticker-right sticker-color-orange"></b>
+                                    <div class="avatar"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+                                    <div class="reply">
+                                        <div class="date" style="font-size:12px;">{{message.create_at_nice}}</div>
+                                        <div class="author">我</div>
+                                        {% autoescape false %}
+                                        <div class="text">{{message.msg}}</div>
+                                        {% endautoescape %}
+                                    </div>
+
+                                </li>
+
+                                {% else %}
+                                <li class="bg-color-greenLight place-left span4">
+                                    <b class="sticker sticker-left sticker-color-greenLight"></b>
+                                    <div class="avatar"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+                                    <div class="reply">
+                                        <div class="date" style="font-size:12px;">{{message.create_at_nice}}</div>
+                                        <div class="author">{{message.user.username}}</div>
+                                        {% autoescape false %}
+                                        <div class="text">{{message.msg}}</div>
+                                        {% endautoescape %}
+                                    </div>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</div>
+
+<script id="msg-left-template" type="text/template">
+<li class="bg-color-greenLight span4">
+    <b class="sticker sticker-left sticker-color-greenLight"></b>
+    <div class="avatar"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+    <div class="reply">
+        <div class="date"><%= create_at %></div>
+        <div class="author"><%= user.username %></div>
+        <div class="text"><%= msg %></div>
+    </div>
+</li>
+</script>
+
+<script id="msg-right-template" type="text/template">
+<li class="bg-color-orange place-right span4">
+    <b class="sticker sticker-right sticker-color-orange"></b>
+    <div class="avatar"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+    <div class="reply">
+        <div class="date"><%= create_at %></div>
+        <div class="author">我</div>
+        <div class="text"><%= msg %></div>
+    </div>
+
+</li>
+</script>
+
+
+{{ include('layout/footer.html', sandboxed = true) }}

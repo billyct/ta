@@ -1,0 +1,416 @@
+html {
+  font-family: '微软雅黑' !important;
+}
+
+/*.nav-fixed {
+  width: 940px !important;
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1003 !important;
+  margin-bottom: 0;
+  margin-left: 15.2% !important;
+  margin-right: 15.2% !important;
+}*/
+
+/*发布timeline表单*/
+.quick-form {
+  border: 1px #ddd solid;
+  position: absolute;
+  z-index: 1004;
+  padding: 5px;
+  width: 400px;
+  background: #fff;
+  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, .3);
+}
+
+.quick-form:after {
+  content:"";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid white;
+  width:0;
+  height:0;
+  position:absolute;
+  top:-5px;
+  right:50px
+}
+
+.quick-form .textarea-quick {
+  resize:none;
+}
+
+/*timeline 图片上传*/
+#image-timeline-uploader {
+  border: 1px #ddd solid;
+  padding: 10px;
+}
+
+#image-timeline-uploader:after {
+  content:"";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ddd;
+  width:0;
+  height:0;
+  position:absolute;
+  top:210px;
+  right:370px
+}
+
+.image-timeline-uploaded-thumb {
+  width: 64px;
+  height: 64px;
+}
+
+
+/*comment 表单*/
+.comment-form {
+  margin-top: 20px;
+}
+
+#image-comment-uploader {
+  border: 1px #ddd solid;
+  padding: 10px;
+  position: absolute;
+  right: 400px;
+  top: 460px;
+  background: #ddd;
+  z-index: 1001;
+
+}
+
+#image-comment-uploader:after {
+  content:"";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ddd;
+  width:0;
+  height:0;
+  position:absolute;
+  top:-5px;
+  right:54px;
+}
+
+
+
+
+.metrouicss .cancel {
+  border: 4px #2d89ef solid;
+}
+.metrouicss .cancel:after {
+  width: 0;
+  height: 0;
+  border-top: 40px solid #2d89ef;
+  border-left: 40px solid transparent;
+  position: absolute;
+  display: block;
+  right: 0;
+  content: ".";
+  top: 0;
+  z-index: 1001;
+}
+.metrouicss .cancel:before {
+  position: absolute;
+  content: "\e089";
+  color: #fff;
+  right: 4px;
+  font-family: iconFont;
+  z-index: 1002;
+}
+
+
+/** 列表*/
+
+ul.timeline-list {
+  padding-left: 20px;
+} 
+ul.comment-list {
+  margin-left: 0px !important;
+  margin-top: 10px;
+}
+
+.timeline-list .timeline,
+.comment-list .comment {
+  width: 100%;
+}
+
+
+.timeline-list .timeline .avatar,
+.comment-list .comment .avatar {
+  float:left;
+  margin-right:20px;
+  width:60px;
+  height:60px;
+}
+
+.timeline-list .timeline .avatar img, 
+.comment-list .comment .avatar img {
+  width:60px;
+  height:60px;
+}
+
+.timeline-list .timeline .detail,
+.comment-list .comment .detail {
+  float: left;
+  width: 80%;
+}
+
+.timeline-list .timeline .detail .username,
+.comment-list .comment .detail .username {
+  font-weight: bold;
+  font-size: 14px;
+  color: black;
+}
+
+.timeline-list .timeline .detail .create_at, 
+.timeline-list .timeline .detail .deadline,
+.comment-list .comment .detail .create_at {
+  color: #999;
+  font-size: 12px;
+}
+
+.timeline-list .timeline .detail .deadline {
+  font-style: italic;
+}
+.timeline-list .timeline .detail .deadline .icon-clock{
+  font-size: 14px;
+}
+
+
+.timeline-list .timeline .detail .content {
+  font-size: 14px;
+}
+.timeline-list .timeline .detail .content a{
+  color: #000;
+}
+.timeline-list .timeline .detail .content i{
+  color: #ddd;
+}
+
+.timeline-list .timeline .detail .toolbar {
+  font-size: 12px;
+}
+
+.toolbar .badge {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #2d89ef;
+  padding: 3px;
+  margin: 0 !important;
+  text-align: center;
+  display: block;
+  font-size: 7pt;
+  color: #fff;
+  line-height: 3pt;
+}
+
+.timeline-list .timeline .detail .toolbar #favorite,
+.timeline-list .timeline .detail .toolbar #comments {
+  cursor:pointer;
+  font-size: 14px;
+}
+
+.timeline-list hr,
+.comment-list hr {
+  height:1px;
+  border: none;
+}
+
+
+
+.timeline-single {
+  padding: 5px;
+
+}
+
+.timeline-single .content {
+  font-size: 18px;
+}
+
+.timeline-single i{
+  margin-right: 10px;
+}
+.timeline-single .image {
+  margin-left: 30px;
+}
+
+.timeline-single .create_at{
+  color: #999;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.timeline-single .deadline{
+  color: #999;
+  font-size: 12px;
+}
+
+.form-comment .textarea {
+  resize:none;
+}
+
+
+
+.user-intro .avatar{
+  width: 100px;
+  height: 100px;
+}
+
+.notify {
+  margin: 0 0 20px;
+  padding: 18px 20px;
+  overflow: hidden;
+  line-height: 1.2;
+  font-size: 14px;
+  background: #f2f7f6;
+  border-radius: 4px;
+}
+
+.load-more {
+  padding: 10px;
+}
+
+
+/*cny15*/
+.cny15-new .shipping {
+  padding: 10px;
+}
+.cny15-new .buttons {
+  margin-top: 20px;
+}
+
+.cny15-new .images p {
+  margin-right: 0px !important;
+}
+
+.cny15-new .category .select-sub {
+  margin-left: 10px;
+}
+
+.cny15-manage .cny15-status {
+  padding: 10px;
+}
+
+.cny15-single .smallinfos2,
+.cny15-single .images {
+  padding: 10px;
+}
+.cny15-single .images,
+.cny15-single .description,
+.cny15-single .instructions,
+.cny15-single .tags,
+.cny15-single .reviews {
+  margin-top: 20px;
+}
+
+.cny15-single .reviews {
+  padding: 10px;
+}
+
+.cny15-manage .extras li,
+.cny15-single .extras li {
+  padding: 0;
+}
+.cny15-single .extras .extra {
+  width: 460px !important;
+}
+
+.cny15-manage .extras li .data,
+.cny15-manage .extras li .data {
+  margin-left: 40px;
+}
+
+.my-orders a {
+  font-size: 12px;
+}
+
+.my-order table th {
+  text-align: right;
+}
+
+
+/*私信*/
+.messages-single .btn-send  /* the button */
+{
+  padding:8px;
+  background:#9eca80;
+  width:52px;
+  border-radius:2px;
+  color:#fff;
+  cursor:pointer;
+  text-align:center;
+  font-size:80%;
+  font-weight:bold;
+}
+.messages-single .message-box
+{
+  border:1px solid #ddd;
+}
+.messages-single .message-box #message-input-area
+{
+  display:none;
+  padding: 10px;
+  color:#000;
+  position:relative;
+}
+.messages-single .message-box #message-text-area
+{
+  padding:10px;
+  min-height:15px;
+  cursor:text;
+}
+
+.messages-single .message-box #close,
+.messages-single .message-box #textbox 
+{
+  float:left;
+}
+
+.messages-single .message-box #textbox 
+{
+  width:450px;
+  min-height:20px;
+  outline:none;
+  min-height:50px;
+}
+.messages-single .message-box #close
+{
+  background: no-repeat url('../images/bg.png') -33px -31px;
+  height: 9px;
+  width: 9px;
+  cursor: pointer;
+  right: 11px;
+  margin: 1px;
+  position: absolute;
+  top: 11px;
+}
+
+.messages-single hr {
+  height:1px;
+  border: none;
+}
+.messages-single .message-list {
+  margin-top: 20px;
+}
+
+/*用户，个人中心*/
+.profile-header {
+
+}
+
+.profile .profile-content {
+  margin-top: 20px;
+}
+
+.profile .profile-content .page-control .frames {
+  border: none;
+}
+
+
+
+

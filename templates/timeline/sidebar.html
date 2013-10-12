@@ -1,0 +1,15 @@
+ <div class="page-sidebar">
+    <ul>
+        
+    	<li><a href=""><i class="icon-home"></i>首页</a></li>
+        {% if current_user %}
+        <li class="sticker sticker-color-blue dropdown active" data-role="dropdown">
+        	<a href="javascript:void(0);"><i class="icon-reddit"></i>个人中心</a>
+        	<ul class="sub-menu sidebar-dropdown-menu light open">
+        		<li><a href="{{base_url}}/profile">主页</a></li>
+        		<li><a href="{{base_url}}/collection">收藏</a></li>
+        	</ul>
+        </li>
+        {% endif %}
+    </ul>
+</div>

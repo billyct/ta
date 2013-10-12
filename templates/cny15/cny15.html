@@ -1,0 +1,216 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>￥ 15<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div class="cny15-single span8">
+                        <div class="span8">
+                            <div class="title span6">
+                                <h2>给我￥{{gig.price}}，我将{{ gig.title }}！</h2>
+                            </div>
+                            <div class="span2">
+                                <button id="btn-create-order" gig-id="{{gig.id}}" class="button bg-color-greenLight fg-color-white">立即购买 > </button>
+                                <p><a id="link-show-sum" href="javascript:void(0);" style="font-size:12px;">购买更多</a></p>
+                                <select id="gig-sum" style="display:none;">
+                                    <option value="1" selected>1</option>
+                                </select>
+                            </div>
+
+                            
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                        <div class="smallinfos span8">
+                            <p><span class="label inverse">发布时间:{{gig.create_at_nice}}</span></p>
+                            <div class="padding10 contact-seller span8">
+                                <a href="{{base_url}}/message/{{gig.user.id}}">联系卖家</a>
+                            </div>
+                            <p>
+                                <a id="gig-favorite" data="{{gig.favorited?'undo':'do'}}" gig-id="{{gig.id}}" class="button bg-color-blueLight">
+                                    收藏
+                                    <i id="icon-i" class="{{gig.favorited?'icon-heart':'icon-heart-2'}}" title="收藏"></i>
+                                    {% if gig.favorited_count > 0 %}
+                                    <span class="badge">{{gig.favorited_count}}</span>
+                                    {% endif %}
+                                </a>
+                            </p>
+                            
+                        </div>
+
+                        <div class="span8 smallinfos2 bg-color-blueLight">
+                            
+                            <div class="avatar span1"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+                            <div class="user span1">
+                                <p><h4>{{gig.user.username}}</h4></p>
+                                
+                            </div>
+                            <div class="span1">
+                                <p>
+                                    <h3>100%</h3>信用度
+                                </p>
+                            </div>
+                            <div class="order-count span1">
+                                <p><h3>{{gig.orders_count}}10人</h3>购买</p>
+                            </div>
+                            <div class="span1">
+                                <p><h3>{{gig.day_to_complete}}天</h3>完成</p>
+                            </div>
+                            <div class="span1">
+                                <p>
+                                    <h3>100%</h3>
+                                    好评率
+                                </p>
+                            </div>
+                            <div class="span1">
+                                <p>
+                                    <h3>5人</h3>
+                                    排队
+                                </p>
+
+                            </div>
+                        </div>
+                        {% if gig.images %}
+                        <div class="images span8">
+                             <div class="carousel span6" style="height: 500px;" data-role="carousel" >
+                                <div class="slides">
+                                    {% for image in gig.images %}
+                                    <div class="slide image tile">
+
+                                        <img src="{{image.path}}"/>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                         
+                                <span class="control left">‹</span>
+                                <span class="control right">›</span>
+                            </div>
+
+                        </div>
+                        {% endif %}
+                        <div class="description span8 padding10">
+                            <span class="label span1">详细描述:</span>
+                            <p class="span6">{{gig.description}}</p>
+                        </div>
+
+                        <div class="instructions span8 padding10">
+                            <span class="label span1">说明:</span>
+                            <p class="span6">{{gig.instructions}}</p>
+                        </div>
+
+                        <p class="tags span8 padding10">
+                            {% for tag in gig.tags %}
+                                <span class="label info">{{tag.name}}</span>
+                            {% endfor%}
+                        </p>
+
+                        <div class="span8 bg-color-blueLight">
+                            <div class="span8 padding10">
+                                <p class="span1">
+                                    <span class="label info">附加服务:</span>
+                                </p>
+                                <ul id="extra-list" class="span6 listview extras">
+                                    {% for extra in gig.extras %}
+                                    <li class="extra span6">
+                                        <div class="badge">
+                                            +￥{{extra.price}}
+                                        </div>
+                                        <div class="data span4">
+                                            <h4>{{extra.title}}</h4>
+                                            <p>
+                                                <span class="label">
+                                                    {% if (extra.extra_time) %}
+                                                    额外时间:{{extra.extra_time}}天
+                                                    {% else %}
+                                                    不需要增加额外的时间
+                                                    {% endif %}
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div class="span1 place-right">
+                                            <label class="input-control checkbox">
+                                                <input price="{{extra.price}}" value="{{extra.id}}" id="select-extra" type="checkbox">
+                                                <span class="helper"></span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div id="extra-button" gig-price="{{gig.price}}" class="offset1" style="display:none;">
+                                <button id="btn-create-order-all" gig-id="{{gig.id}}" class="command-button bg-color-greenLight fg-color-white">
+                                    订购以上服务(<span></span>)
+                                    <small>包括: 商品费用{{gig.price}}元，附加服务费{{extra.price}}元, 数量: 1</small>
+                                </button>
+                            </div>
+                            
+                        </div>
+
+                        <div class="span8 reviews bg-color-blueLight">
+                            <button class="bg-color-orangeDark fg-color-white">
+                                <i class="icon-thumbs-up fg-color-white"></i>好评
+                            </button>
+                            <button class="bg-color-orangeDark fg-color-white">
+                                <i class="icon-thumbs-down"></i>差评
+                            </button>
+                            
+                        </div>
+
+                    </div>
+
+
+                    <div class="cny15-single-comments span8">
+                        <div class="span1">
+                            <img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+                        </div>
+                        <form class="span7">
+                            <div class="input-control">
+                                <textarea></textarea>
+                            </div>
+                            <div class="input-control">
+                                <button class="bg-color-greenDark fg-color-white">留言</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <ul id="comment-list" class="comment-list unstyled">
+                        {% for comment in comments%}
+                        <li class="comment">
+                            <div class="avatar">
+                                <img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1" />
+                            </div>
+                            <div class="detail">
+                                <p>
+                                    <span class="username">{{comment.user.username}}:</span>
+                                </p>
+                                <p class="content">
+                                    {{comment.content}}
+                                </p>
+                                <div class="clearfix"></div>
+                                <p class="create_at">{{comment.create_at_nice}}</p>
+                                <hr />
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{ include('layout/footer.html', sandboxed = true) }}

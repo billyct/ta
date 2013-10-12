@@ -1,0 +1,71 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>￥ 15<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div class="gigs span8">
+                        {% for gig in gigs %}
+                        <div class="gig span8">
+                            {% if gig.images %}
+                            <div class="gig-images span2">
+                                <div class="tile image-slider" data-role="image-slider">
+                                    {% for image in gig.images %}
+                                    <div class="tile-content">
+                                        <img src="{{ image.path_thumb }}"/>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+
+
+
+                            <div class="gig-detail span5">
+                                <a class="title-description" href="{{base_url}}/cny15/{{gig.id}}">
+                                    <p>
+                                        <h3>给我￥{{gig.price}}，我将{{ gig.title }}！</h3>
+                                    </p>
+                                </a>
+                                <p class="body-secondary-text">{{ gig.description }}</p>
+                                <p class="toolbar">
+                                    <a id="gig-favorite" data="{{gig.favorited?'undo':'do'}}" gig-id="{{gig.id}}" class="bg-color-blueLight">
+                                        <i id="icon-i" class="{{gig.favorited?'icon-heart':'icon-heart-2'}}" title="收藏"></i>
+                                        {% if gig.favorited_count > 0 %}
+                                        <span class="badge">{{gig.favorited_count}}</span>
+                                        {% endif %}
+                                    </a>
+                                    <a href="{{base_url}}/cny15/{{gig.id}}" class="button bg-color-greenLight fg-color-blueLight">订购</a>
+                                </p>
+                                <p>
+                                    {% for tag in gig.tags %}
+                                        <span class="label info">{{tag.name}}</span>
+                                    {% endfor%}
+
+                                </p>
+
+                            </div>
+                            
+                        </div>
+                        <hr />
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{{ include('layout/footer.html', sandboxed = true) }}

@@ -1,0 +1,61 @@
+{{ include('layout/header.html', sandboxed = true) }}
+<div class="page secondary with-sidebar">
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1>私信<small></small></h1>
+            <a href="/" class="back-button big page-back"></a>
+        </div>
+    </div>
+
+    {{ include('cny15/sidebar.html', sandboxed = true) }}
+
+    <div class="page-region">
+        <div class="page-region-content">
+            <div class="grid">
+                <div class="row">
+                    <div class="messages">
+                        <ul id="message-list" class="replies span8">
+                            {% for message in messages %}
+                            {% if current_user.id == message.user.id %}
+                            <li class="bg-color-orange place-left span8">
+                                <b class="sticker sticker-left sticker-color-orange"></b>
+                                <div class="avatar"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+                                <div class="reply">
+                                    <div class="date" style="font-size:12px;">{{message.create_at_nice}}</div>
+                                    <div class="author">我  <span class="label success">发给:{{message.to.username}}</span></div>
+                                    {% autoescape false %}
+                                    <a href="{{base_url}}/message/{{message.to.id}}"><div class="text">{{message.msg}}</div></a>
+                                    {% endautoescape %}
+                                </div>
+                            </li>
+
+                            {% else %}
+                            <li class="bg-color-greenLight place-left span8">
+                                <b class="sticker sticker-left sticker-color-greenLight"></b>
+                                <div class="avatar"><img src="http://tp3.sinaimg.cn/1842509582/180/40010343779/1"/></div>
+                                <div class="reply">
+                                    <div class="date" style="font-size:12px;">{{message.create_at_nice}}</div>
+                                    <div class="author">{{message.user.username}}</div>
+                                    {% autoescape false %}
+                                    <a href="{{base_url}}/message/{{message.user.id}}"><div class="text">{{message.msg}}</div></a>
+                                    {% endautoescape %}
+                                </div>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+</div>
+
+
+{{ include('layout/footer.html', sandboxed = true) }}

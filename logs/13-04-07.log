@@ -1,0 +1,98 @@
+ERROR - 2013-04-07T06:21:16+08:00 - exception 'Guzzle\Common\Exception\RuntimeException' with message 'Unable to parse response body into JSON: 4' in C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Response.php:920
+Stack trace:
+#0 C:\xampp\htdocs\ta\src\TA\OAuth.php(88): Guzzle\Http\Message\Response->json()
+#1 C:\xampp\htdocs\ta\src\TA\Client.php(46): TA\OAuth->get('http://api.loca...', Array)
+#2 C:\xampp\htdocs\ta\public\index.php(69): TA\Client->paginator(20, 1)
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#7 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#8 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#9 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#10 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim->run()
+#11 {main}
+ERROR - 2013-04-07T09:39:48+08:00 - exception 'Guzzle\Common\Exception\RuntimeException' with message 'Unable to parse response body into JSON: 4' in C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Response.php:920
+Stack trace:
+#0 C:\xampp\htdocs\ta\src\TA\OAuth.php(88): Guzzle\Http\Message\Response->json()
+#1 C:\xampp\htdocs\ta\src\TA\Client.php(34): TA\OAuth->get('http://api.loca...', Array)
+#2 C:\xampp\htdocs\ta\public\index.php(109): TA\Client->public_paginator(20, 1)
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#7 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#8 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#9 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#10 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim->run()
+#11 {main}
+ERROR - 2013-04-07T09:39:58+08:00 - exception 'Guzzle\Common\Exception\RuntimeException' with message 'Unable to parse response body into JSON: 4' in C:\xampp\htdocs\ta\vendor\guzzle\guzzle\src\Guzzle\Http\Message\Response.php:920
+Stack trace:
+#0 C:\xampp\htdocs\ta\src\TA\OAuth.php(88): Guzzle\Http\Message\Response->json()
+#1 C:\xampp\htdocs\ta\src\TA\Client.php(34): TA\OAuth->get('http://api.loca...', Array)
+#2 C:\xampp\htdocs\ta\public\index.php(109): TA\Client->public_paginator(20, 1)
+#3 [internal function]: {closure}()
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#7 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#8 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#9 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#10 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim->run()
+#11 {main}
+ERROR - 2013-04-07T10:46:50+08:00 - exception 'Twig_Error_Loader' with message 'Unable to find template "cny15s.html" (looked into: ../templates).' in C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Loader\Filesystem.php:198
+Stack trace:
+#0 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(134): Twig_Loader_Filesystem->findTemplate('cny15s.html')
+#1 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(266): Twig_Loader_Filesystem->getCacheKey('cny15s.html')
+#2 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(313): Twig_Environment->getTemplateClass('cny15s.html', NULL)
+#3 C:\xampp\htdocs\ta\vendor\slim\extras\Slim\Extras\Views\Twig.php(97): Twig_Environment->loadTemplate('cny15s.html')
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\View.php(195): Slim\Extras\Views\Twig->render('cny15s.html')
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\View.php(182): Slim\View->fetch('cny15s.html')
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(672): Slim\View->display('cny15s.html')
+#7 C:\xampp\htdocs\ta\public\index.php(121): Slim\Slim->render('cny15s.html')
+#8 [internal function]: {closure}()
+#9 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#10 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#11 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#12 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#13 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#14 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#15 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim->run()
+#16 {main}
+ERROR - 2013-04-07T10:47:20+08:00 - exception 'Twig_Error_Loader' with message 'Unable to find template "cny15-sidebar.html" (looked into: ../templates) in "cny15/cny15s.html" at line 11.' in C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Loader\Filesystem.php:198
+Stack trace:
+#0 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Loader\Filesystem.php(134): Twig_Loader_Filesystem->findTemplate('cny15-sidebar.h...')
+#1 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(266): Twig_Loader_Filesystem->getCacheKey('cny15-sidebar.h...')
+#2 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(313): Twig_Environment->getTemplateClass('cny15-sidebar.h...', NULL)
+#3 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Environment.php(374): Twig_Environment->loadTemplate('cny15-sidebar.h...')
+#4 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Extension\Core.php(1282): Twig_Environment->resolveTemplate('cny15-sidebar.h...')
+#5 C:\xampp\htdocs\ta\templates\cache\14\7a\e666331d80b6183391c26d1398dd.php(32): twig_include(Object(Twig_Environment), Array, 'cny15-sidebar.h...', Array, true, false, true)
+#6 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Template.php(265): __TwigTemplate_147ae666331d80b6183391c26d1398dd->doDisplay(Array, Array)
+#7 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+#8 C:\xampp\htdocs\ta\vendor\twig\twig\lib\Twig\Template.php(250): Twig_Template->display(Array)
+#9 C:\xampp\htdocs\ta\vendor\slim\extras\Slim\Extras\Views\Twig.php(99): Twig_Template->render(Array)
+#10 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\View.php(195): Slim\Extras\Views\Twig->render('cny15/cny15s.ht...')
+#11 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\View.php(182): Slim\View->fetch('cny15/cny15s.ht...')
+#12 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(672): Slim\View->display('cny15/cny15s.ht...')
+#13 C:\xampp\htdocs\ta\public\index.php(121): Slim\Slim->render('cny15/cny15s.ht...')
+#14 [internal function]: {closure}()
+#15 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#16 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#17 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#18 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#19 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#20 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#21 C:\xampp\htdocs\ta\public\index.php(146): Slim\Slim->run()
+#22 {main}
+ERROR - 2013-04-07T23:35:33+08:00 - exception 'ErrorException' with message 'Undefined variable: user' in C:\xampp\htdocs\ta\public\index.php:157
+Stack trace:
+#0 C:\xampp\htdocs\ta\public\index.php(157): Slim\Slim::handleErrors(8, 'Undefined varia...', 'C:\xampp\htdocs...', 157, Array)
+#1 [internal function]: {closure}()
+#2 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#7 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#8 C:\xampp\htdocs\ta\public\index.php(182): Slim\Slim->run()
+#9 {main}

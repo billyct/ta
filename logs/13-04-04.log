@@ -1,0 +1,12 @@
+ERROR - 2013-04-04T20:49:44+08:00 - exception 'ErrorException' with message 'Undefined variable: user' in C:\xampp\htdocs\ta\public\index.php:108
+Stack trace:
+#0 C:\xampp\htdocs\ta\public\index.php(108): Slim\Slim::handleErrors(8, 'Undefined varia...', 'C:\xampp\htdocs...', 108, Array)
+#1 [internal function]: {closure}('13')
+#2 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Router.php(172): call_user_func_array(Object(Closure), Array)
+#3 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1222): Slim\Router->dispatch(Object(Slim\Route))
+#4 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\Flash.php(86): Slim\Slim->call()
+#5 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\MethodOverride.php(94): Slim\Middleware\Flash->call()
+#6 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Middleware\PrettyExceptions.php(67): Slim\Middleware\MethodOverride->call()
+#7 C:\xampp\htdocs\ta\vendor\slim\slim\Slim\Slim.php(1174): Slim\Middleware\PrettyExceptions->call()
+#8 C:\xampp\htdocs\ta\public\index.php(129): Slim\Slim->run()
+#9 {main}
